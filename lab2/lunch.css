@@ -1,0 +1,182 @@
+/* Сетка для блоков с блюдами */
+.dishes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+/* Блок каждого блюда */
+.dish-card {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    border-radius: 35px;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    background-color: white;
+    transition: border 0.3s ease;
+    border: 2px solid white;
+}
+
+.dish-card:hover {
+    border: 2px solid tomato;
+}
+
+.dish-card .add-btn:hover {
+    background-color: #e0d5cc;
+}
+
+/* Изображение */
+.dish-card img {
+    width: 100%;
+    border-radius: 35px;
+    margin-bottom: 15px;
+}
+
+/* Цена */
+.dish-card .price {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+/* Название блюда */
+.dish-card .dish-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    flex-grow: 1;
+}
+
+/* Вес/объем */
+.dish-card .weight {
+    color: #888888;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Кнопка */
+.add-btn {
+    background-color: #f1eee9;
+    margin-top: auto;
+    padding: 10px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+/* Навигационное меню - flexbox */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Активная ссылка */
+nav a#active {
+    color: tomato;
+}
+
+/* Футер внизу страницы */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+/* ≤800px */
+@media screen and (max-width: 800px) {
+    .dishes-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    nav {
+        justify-content: space-between;
+    }
+    
+    header h1 {
+        text-align: center;
+    }
+}
+
+/* ≤600px */
+@media screen and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav a {
+        font-size: 24px;
+    }
+    
+    .menu-section h2 {
+        text-align: center;
+    }
+    
+    .dishes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dish-card {
+        padding: 20px 25px;
+    }
+}
+
+/* ===== ГЛАВНАЯ СТРАНИЦА - АДАПТИВНОСТЬ ===== */
+/* Эти стили нужно добавить в style.css для главной страницы */
+
+@media screen and (max-width: 800px) {
+    .about img {
+        width: 500px;
+    }
+    
+    nav {
+        justify-content: space-between;
+    }
+    
+    header h1 {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .about img {
+        width: 100%;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav a {
+        font-size: 24px;
+    }
+    
+    table {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    table {
+        font-size: 12px;
+    }
+    
+    table th,
+    table td {
+        padding: 8px 10px;
+    }
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Собрать ланч — Food Construct</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lunch.css">
+</head>
+
+<body>
+    <header>
+        <h1>Food Construct</h1>
+        <nav>
+            <a href="index.html">О нас</a>
+            <a href="lunch.html" id="active">Собрать ланч</a>
+            <a href="order.html" id="active">Оформить заказ</a>
+            <a href="orders.html">Заказы</a>
+            <a href="#footer">Контакты</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Блок с супами -->
+        <section class="menu-section" id="soups-section">
+            <h2>Выберите суп</h2>
+
+            <div class="filters-container" data-category="soup">
+                <a href="#" class="filter-btn" data-kind="fish">рыбный</a>
+                <a href="#" class="filter-btn" data-kind="meat">мясной</a>
+                <a href="#" class="filter-btn" data-kind="vegetarian">вегетарианский</a>
+            </div>
+
+            <div class="dishes-grid">
+                <!-- Блюда будут добавлены через JavaScript -->
+            </div>
+        </section>
+
+        <!-- Блок с главными блюдами -->
+        <section class="menu-section" id="main-section">
+            <h2>Выберите главное блюдо</h2>
+
+            <div class="filters-container" data-category="main">
+                <a href="#" class="filter-btn" data-kind="fish">рыбное</a>
+                <a href="#" class="filter-btn" data-kind="meat">мясное</a>
+                <a href="#" class="filter-btn" data-kind="vegetarian">вегетарианское</a>
+            </div>
+
+            <div class="dishes-grid">
+                <!-- Блюда будут добавлены через JavaScript -->
+            </div>
+        </section>
+
+        <!-- Блок с салатами и стартерами -->
+        <section class="menu-section" id="salads-section">
+            <h2>Выберите салат или стартер</h2>
+
+            <div class="filters-container" data-category="salad">
+                <a href="#" class="filter-btn" data-kind="fish">рыбный</a>
+                <a href="#" class="filter-btn" data-kind="meat">мясной</a>
+                <a href="#" class="filter-btn" data-kind="vegetarian">вегетарианский</a>
+            </div>
+
+            <div class="dishes-grid">
+                <!-- Блюда будут добавлены через JavaScript -->
+            </div>
+        </section>
+
+        <!-- Блок с напитками -->
+        <section class="menu-section" id="drinks-section">
+            <h2>Выберите напиток</h2>
+
+            <div class="filters-container" data-category="drink">
+                <a href="#" class="filter-btn" data-kind="cold">холодный</a>
+                <a href="#" class="filter-btn" data-kind="hot">горячий</a>
+            </div>
+
+            <div class="dishes-grid">
+                <!-- Блюда будут добавлены через JavaScript -->
+            </div>
+        </section>
+
+        <!-- Блок с десертами -->
+        <section class="menu-section" id="desserts-section">
+            <h2>Выберите десерт</h2>
+
+            <div class="filters-container" data-category="dessert">
+                <a href="#" class="filter-btn" data-kind="small">маленькая порция</a>
+                <a href="#" class="filter-btn" data-kind="medium">средняя порция</a>
+                <a href="#" class="filter-btn" data-kind="large">большая порция</a>
+            </div>
+
+            <div class="dishes-grid">
+                <!-- Блюда будут добавлены через JavaScript -->
+            </div>
+        </section>
+
+        <!-- Блок с доступными вариантами ланчей -->
+        <section class="lunch-combos">
+            <h2>Доступные варианты ланча</h2>
+
+            <div class="combos-grid">
+                <!-- Вариант 1: Суп + Главное + Салат + Напиток -->
+                <div class="combo-card" data-combo="1">
+                    <div class="combo-dish">
+                        <img src="images/combo/soup.jpg" alt="Суп">
+                        <span>Суп</span>
+                    </div>
+                    <div class="combo-dish">
+                        <img src="images/combo/main.jpg" alt="Главное блюдо">
+                        <span>Главное блюдо</span>
+                    </div>
+                    <div class="combo-dish">
+                        <img src="images/combo/salad.jpg" alt="Салат">
+                        <span>Салат</span>
+                    </div>
+                    <div class="combo-dish">
+                        <img src="images/combo/drink.jpg" alt="Напиток">
+                        <span>Напиток</span>
+                    </div>
+                    <p class="combo-info">Десерты можно добавить к любому ланчу</p>
+                </div>
+
+                <!-- Вариант 2: Суп + Главное + Напиток -->
+                <div class="combo-card" data-combo="2">
+                    <div class="combo-dish">
+                        <img src="images/combo/soup.jpg" alt="Суп">
+                        <span>Суп</span>
+                    </div>
+                    <div class="combo-dish">
+                        <img src="images/combo/main.jpg" alt="Главное блюдо">
+                        <span>Главное блюдо</span>
+                    </div>
+                    <div class="combo-dish">
+                        <img src="images/combo/drink.jpg" alt="Напиток">
+                        <span>Напиток</span>
+                    </div>
+                    <p class="combo-info">Десерты можно добавить к любому ланчу</p>
+                </div>
+
+                <!-- Вариант 3: Суп + Салат + Напиток -->
+                <div class="combo-card" data-combo="3">
+                    <div class="combo-dish">
+                        <img src="images/combo/soup.jpg" alt="Суп">
+                        <span>Суп</span>
+                    </div>
+                    <div class="combo-dish">
+                        <img src="images/combo/salad.jpg" alt="Салат">
+                        <span>Салат</span>
+                    </div>
+                    <div class="combo-dish">
+                        <img src="images/combo/drink.jpg" alt="Напиток">
+                        <span>Напиток</span>
+                    </div>
+                    <p class="combo-info">Десерты можно добавить к любому ланчу</p>
+                </div>
+
+                <!-- Вариант 4: Главное + Салат + Напиток -->
+                <div class="combo-card" data-combo="4">
+                    <div class="combo-dish">
+                        <img src="images/combo/main.jpg" alt="Главное блюдо">
+                        <span>Главное блюдо</span>
+                    </div>
+                    <div class="combo-dish">
+                        <img src="images/combo/salad.jpg" alt="Салат">
+                        <span>Салат</span>
+                    </div>
+                    <div class="combo-dish">
+                        <img src="images/combo/drink.jpg" alt="Напиток">
+                        <span>Напиток</span>
+                    </div>
+                    <p class="combo-info">Десерты можно добавить к любому ланчу</p>
+                </div>
+
+                <!-- Вариант 5: Главное + Напиток -->
+                <div class="combo-card" data-combo="5">
+                    <div class="combo-dish">
+                        <img src="images/combo/main.jpg" alt="Главное блюдо">
+                        <span>Главное блюдо</span>
+                    </div>
+                    <div class="combo-dish">
+                        <img src="images/combo/drink.jpg" alt="Напиток">
+                        <span>Напиток</span>
+                    </div>
+                    <p class="combo-info">Десерты можно добавить к любому ланчу</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sticky панель для перехода к оформлению -->
+        <section class="checkout-panel" id="checkout-panel" style="display: none;">
+            <div class="checkout-panel-content">
+                <div class="checkout-total">
+                    <strong>Итого: <span id="panel-total">0</span>₽</strong>
+                </div>
+                <a href="order.html" class="checkout-link" id="checkout-link">Перейти к оформлению</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer">
+        <p>Позвонить нам <a href="tel:+70000000000">+7-000-000-00-00</a></p>
+    </footer>
+
+    <!-- Подключаем скрипты -->
+    <script src="scripts/mock-dishes.js"></script>
+    <script src="scripts/local-storage.js"></script>
+    <script src="scripts/render-dishes.js"></script>
+    <script src="scripts/order-manager.js"></script>
+    <script src="scripts/validation.js"></script>
+    <script src="scripts/checkout-panel.js"></script>
+
+    <!-- Скрипт для управления временем доставки -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const radioAsap = document.getElementById('delivery-asap');
+            const radioSpecific = document.getElementById('delivery-specific');
+            const timeInput = document.getElementById('delivery-time');
+            const form = document.querySelector('.order-form');
+
+            function toggleTimeInput() {
+                if (radioSpecific.checked) {
+                    timeInput.disabled = false;
+                    timeInput.required = true;
+                } else {
+                    timeInput.disabled = true;
+                    timeInput.required = false;
+                    timeInput.value = '';
+                }
+            }
+
+            radioAsap.addEventListener('change', toggleTimeInput);
+            radioSpecific.addEventListener('change', toggleTimeInput);
+
+            form.addEventListener('reset', function () {
+                setTimeout(function () {
+                    timeInput.disabled = true;
+                    timeInput.required = false;
+                }, 10);
+            });
+        });
+    </script>
+</body>
+
+</html>

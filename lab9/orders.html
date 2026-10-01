@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказы — Food Construct</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="orders.css">
+</head>
+
+<body>
+    <header>
+        <h1>Food Construct</h1>
+        <nav>
+            <nav>
+                <a href="index.html">О нас</a>
+                <a href="lunch.html">Собрать ланч</a>
+                <a href="order.html">Оформить заказ</a>
+                <a href="orders.html" id="active">Заказы</a>
+                <a href="#footer">Контакты</a>
+            </nav>
+        </nav>
+    </header>
+
+    <main>
+        <section class="orders-page">
+            <h2>История заказов</h2>
+
+            <div id="orders-list" class="orders-list">
+                <!-- Заказы будут загружены через JavaScript -->
+                <div class="loading">Загрузка заказов...</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно просмотра заказа -->
+    <div id="view-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" data-modal="view-modal">&times;</span>
+            <h3>Информация о заказе</h3>
+            <div id="view-order-details"></div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" data-modal-close="view-modal">Ок</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно редактирования -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close-btn" data-modal="edit-modal">&times;</span>
+            <h3>Редактирование заказа</h3>
+            <form id="edit-order-form" class="order-form">
+                <input type="hidden" id="edit-order-id">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-full-name">Имя *</label>
+                        <input type="text" id="edit-full-name" name="full_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-email">Email *</label>
+                        <input type="email" id="edit-email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-phone">Телефон *</label>
+                    <input type="tel" id="edit-phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-address">Адрес доставки *</label>
+                    <input type="text" id="edit-address" name="delivery_address" required>
+                </div>
+
+                <div class="form-group">
+                    <span class="label-text">Время доставки: *</span>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="edit-delivery-now" name="delivery_type" value="now" required>
+                            <label for="edit-delivery-now">Как можно скорее</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="edit-delivery-time" name="delivery_type" value="by_time">
+                            <label for="edit-delivery-time">К указанному времени</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-delivery-time-value">Укажите время доставки</label>
+                    <input type="time" id="edit-delivery-time-value" name="delivery_time" min="07:00" max="23:00"
+                        step="300">
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-comment">Комментарий</label>
+                    <textarea id="edit-comment" name="comment" rows="3"></textarea>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" data-modal-close="edit-modal">Отмена</button>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно подтверждения удаления -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" data-modal="delete-modal">&times;</span>
+            <h3>Подтверждение удаления</h3>
+            <p>Вы действительно хотите удалить заказ №<span id="delete-order-id"></span>?</p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" data-modal-close="delete-modal">Отмена</button>
+                <button class="btn btn-danger" id="confirm-delete-btn">Да</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <p>Позвонить нам <a href="tel:+70000000000">+7-000-000-00-00</a></p>
+    </footer>
+
+    <!-- Подключаем скрипты -->
+    <script src="scripts/mock-dishes.js"></script>
+    <script src="scripts/mock-api.js"></script>
+    <script src="scripts/orders.js"></script>
+</body>
+
+</html>

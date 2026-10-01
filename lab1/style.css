@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+header {
+    padding: 30px 60px 20px 60px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+    padding: 10px 0;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff6b4a;
+}
+
+main {
+    padding: 20px 60px;
+    margin-bottom: 40px;
+}
+
+.about {
+    margin-bottom: 50px;
+}
+
+.about img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.about h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.about p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #333333;
+    line-height: 1.7;
+}
+
+.advantages {
+    margin-bottom: 50px;
+}
+
+.advantages h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+.advantages ul {
+    padding-left: 30px;
+}
+
+.advantages ul li {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.popular {
+    margin-bottom: 50px;
+}
+
+.popular h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th,
+table td {
+    border: 1px solid #cccccc;
+    padding: 14px 18px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #1a1a1a;
+}
+
+table th {
+    font-weight: 700;
+    font-size: 17px;
+    background-color: #f5f5f5;
+}
+
+table td:nth-child(2) {
+    text-align: left;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 30px 60px;
+}
+
+footer p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: white;
+}
+
+footer a {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ff6b4a;
+}
