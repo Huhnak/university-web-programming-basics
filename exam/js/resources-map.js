@@ -439,12 +439,21 @@ function initYandexMap() {
         if (typeof ymaps !== 'undefined') {
             ymaps.ready(() => {
                 try {
+                    mapContainer.innerHTML = '';
                     yandexMap = new ymaps.Map('resources-map-container', {
                         center: [55.753215, 37.622504],
                         zoom: 11,
                         controls: ['zoomControl', 'fullscreenControl', 'typeSelector', 'geolocationControl']
                     }, {
                         searchControlProvider: 'yandex#search'
+                    });
+
+                    // Адаптация геометрии карты под размеры контейнера
+                    yandexMap.container.fitToViewport();
+                    window.addEventListener('resize', () => {
+                        if (yandexMap) {
+                            yandexMap.container.fitToViewport();
+                        }
                     });
 
                     geoCollection = new ymaps.GeoObjectCollection();
