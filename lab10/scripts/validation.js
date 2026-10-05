@@ -50,41 +50,45 @@ function showNotification(message) {
     overlay.addEventListener('click', closeNotification);
 }
 
+// ===== ПРОВЕРКА КОМБИНАЦИИ БЛЮД =====
+function isValidCombo(order) {
+    const combo = {
+        soup: order.soup !== null && order.soup !== undefined,
+        main: order.main !== null && order.main !== undefined,
+        salad: order.salad !== null && order.salad !== undefined,
+        drink: order.drink !== null && order.drink !== undefined
+    };
+
+    return validCombos.some(valid =>
+        valid.soup === combo.soup &&
+        valid.main === combo.main &&
+        valid.salad === combo.salad &&
+        valid.drink === combo.drink
+    );
+}
+
 // ===== ФУНКЦИЯ ПРОВЕРКИ ЗАКАЗА =====
 function validateOrder() {
     const order = currentOrder;
 
-    // Проверяем, выбрано ли хоть что-то
     const hasItems = Object.values(order).some(item => item !== null);
-
     if (!hasItems) {
         showNotification('Ничего не выбрано. Выберите блюда для заказа');
         return false;
     }
 
-    // Проверяем наличие напитка
     if (!order.drink) {
         showNotification('Выберите напиток');
         return false;
     }
 
-    // Формируем объект комбинации
-    const combo = {
-        soup: order.soup !== null,
-        main: order.main !== null,
-        salad: order.salad !== null,
-        drink: order.drink !== null
-    };
+    if (!isValidCombo(order)) {
+        const combo = {
+            soup: order.soup !== null,
+            main: order.main !== null,
+            salad: order.salad !== null,
+        };
 
-    // Проверяем, соответствует ли заказ одной из допустимых комбинаций
-    const isValidCombo = validCombos.some(valid => {
-        return valid.soup === combo.soup &&
-            valid.main === combo.main &&
-            valid.salad === combo.salad &&
-            valid.drink === combo.drink;
-    });
-
-    if (!isValidCombo) {
         if (combo.soup && !combo.main && !combo.salad) {
             showNotification('Выберите главное блюдо/салат/стартер');
             return false;
@@ -95,7 +99,7 @@ function validateOrder() {
             return false;
         }
 
-        if (!combo.soup && !combo.main && !combo.salad && combo.drink) {
+        if (!combo.soup && !combo.main && !combo.salad) {
             showNotification('Выберите главное блюдо');
             return false;
         }

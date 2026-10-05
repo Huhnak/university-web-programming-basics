@@ -12,7 +12,6 @@ const MockAPI = {
 
     // Инициализация моковых данных
     init() {
-        // Загружаем блюда если доступны
         if (typeof mockDishes !== 'undefined') {
             this.dishes = mockDishes.map((dish, index) => ({
                 ...dish,
@@ -20,8 +19,25 @@ const MockAPI = {
             }));
         }
 
-        // Создаем тестовые заказы
-        this.createMockOrders();
+        // Загружаем сохранённые заказы из localStorage
+        const saved = localStorage.getItem('submitted_orders');
+        if (saved) {
+            try {
+                this.orders = JSON.parse(saved);
+            } catch {
+                this.orders = [];
+            }
+        }
+
+        // Если заказов нет — создаём тестовые
+        if (this.orders.length === 0) {
+            this.createMockOrders();
+            this._save();
+        }
+    },
+
+    _save() {
+        localStorage.setItem('submitted_orders', JSON.stringify(this.orders));
     },
 
     // Создание тестовых заказов
@@ -135,12 +151,12 @@ const MockAPI = {
                     student_id: 1
                 };
                 this.orders.push(newOrder);
+                this._save();
                 resolve(newOrder);
             }, 400);
         });
     },
 
-    // Обновить заказ
     async updateOrder(id, updateData) {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -151,6 +167,7 @@ const MockAPI = {
                         ...updateData,
                         updated_at: new Date().toISOString()
                     };
+                    this._save();
                     resolve(this.orders[index]);
                 } else {
                     reject({ error: 'Заказ не найден' });
@@ -159,13 +176,13 @@ const MockAPI = {
         });
     },
 
-    // Удалить заказ
     async deleteOrder(id) {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 const index = this.orders.findIndex(o => o.id === parseInt(id));
                 if (index !== -1) {
                     const deleted = this.orders.splice(index, 1)[0];
+                    this._save();
                     resolve(deleted);
                 } else {
                     reject({ error: 'Заказ не найден' });

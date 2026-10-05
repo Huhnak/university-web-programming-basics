@@ -5,7 +5,7 @@ const API_BASE_URL = 'https://edu.std-900.ist.mospolytech.ru';
 // const API_BASE_URL = 'http://lab8-api.std-900.ist.mospolytech.ru';
 
 // Получаем API ключ (нужно получить из СДО)
-const API_KEY = 'YOUR_API_KEY_HERE'; // Замените на ваш ключ
+const API_KEY = '019c2353-d76f-4eaa-b9f6-ec8231dcddb5'; // Замените на ваш ключ
 
 let orderDishes = {};
 let allDishes = []; // Храним все блюда (с сервера или моковые)
@@ -184,18 +184,18 @@ async function submitOrder(formData) {
             throw new Error(error.message || 'Ошибка при оформлении заказа');
         }
 
-        // Успешно! Очищаем localStorage
         StorageManager.clearOrder();
-
-        // Показываем уведомление об успехе
         alert('Заказ успешно оформлен!');
-
-        // Перенаправляем на главную или lunch страницу
         window.location.href = 'lunch.html';
 
     } catch (error) {
-        console.error('Ошибка отправки заказа:', error);
-        showError(error.message);
+        console.warn('API недоступен, сохраняем заказ локально:', error.message);
+
+        await MockAPI.createOrder(orderData);
+
+        StorageManager.clearOrder();
+        alert('Заказ оформлен и сохранён локально.');
+        window.location.href = 'lunch.html';
     }
 }
 
