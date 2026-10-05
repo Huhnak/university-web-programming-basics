@@ -5,7 +5,7 @@ const API_BASE_URL = 'https://edu.std-900.ist.mospolytech.ru';
 // const API_BASE_URL = 'http://lab8-api.std-900.ist.mospolytech.ru';
 
 // Получаем API ключ (нужно получить из СДО)
-const API_KEY = 'YOUR_API_KEY_HERE'; // Замените на ваш ключ
+const API_KEY = '019c2353-d76f-4eaa-b9f6-ec8231dcddb5'; // Замените на ваш ключ
 
 let orderDishes = {};
 let allDishes = []; // Храним все блюда (с сервера или моковые)
