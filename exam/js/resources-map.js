@@ -571,3 +571,4 @@ function renderMapFallbackNotice(container, errorDetails = '') {
         </div>
     `;
 }
+
