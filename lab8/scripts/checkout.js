@@ -1,6 +1,6 @@
 // ===== CHECKOUT PAGE LOGIC =====
 
-const API_BASE_URL = 'https://web-basics-exam-gagashaggy.amvera.io';
+const API_BASE_URL = 'https://edu.std-900.ist.mospolytech.ru';
 // Для хостинга Московского Политеха:
 // const API_BASE_URL = 'http://lab8-api.std-900.ist.mospolytech.ru';
 

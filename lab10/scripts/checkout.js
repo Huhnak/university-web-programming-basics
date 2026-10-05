@@ -191,7 +191,21 @@ async function submitOrder(formData) {
     } catch (error) {
         console.warn('API недоступен, сохраняем заказ локально:', error.message);
 
-        await MockAPI.createOrder(orderData);
+        if (typeof MockAPI !== 'undefined') {
+            await MockAPI.createOrder(orderData);
+        } else {
+            const saved = JSON.parse(localStorage.getItem('submitted_orders') || '[]');
+            const now = new Date().toISOString();
+            const newOrder = {
+                id: saved.length > 0 ? Math.max(...saved.map(o => o.id)) + 1 : 1,
+                ...orderData,
+                created_at: now,
+                updated_at: now,
+                student_id: 1
+            };
+            saved.push(newOrder);
+            localStorage.setItem('submitted_orders', JSON.stringify(saved));
+        }
 
         StorageManager.clearOrder();
         alert('Заказ оформлен и сохранён локально.');
